@@ -1,0 +1,10 @@
+2019/12/02
+Finally started doing things the RIGHT way.
+- added persons!
+- stole me a state manager!
+- readded in da classic engine (with a twist)
+- added person manager!
+- stole me some tests! (JS tests [as in Unit Testing{In the programming sense<I am running out of brackets!>}]);
+- added a heckload of documentation!
+- wrote tests for person manager
+- fixed a bug in person manager where PersonManager.removePerson would just return the person
