@@ -102,64 +102,62 @@ var PersonManager = {
 }
 
 /**
+	TESTS SHOULD NOT BE RUN BY THEMSELVES. THESE ARE INTEGRATED TESTS.
 	All the tests for PersonManager in one big integrated pile.
 	We do this because it's a manager! And managers affect the world!
 	Jokes on you if the world ain't working.
 	@author laifrank2002
-	@date 2019-12-02
+	@date 2019-12-05
  */
 var TestPersonManager = (
 	function()
 	{
-		return {
-			initialize: function()
-			{
-				Engine.log("Adding tests for PersonManager");
-				// setup
-				var person1 = new Person();
-				PersonManager.addPerson(person1);
-				var person2 = new Person();
-				PersonManager.addPerson(person2);
-				
-				/*
-					Tests the function PersonManager.getPersonByKey(key) by comparing known vs result references
-					@author laifrank2002
-					@date 2019-12-02
-				 */
-				function TestPersonManagerGetPersonByKey()
-				{
-					return PersonManager.getPersonByKey(person1.key);
-				}
-				
-				/*
-					Tests the function PersonManager.removePerson(person) by removing a person, and then testing if we can still get it.
-						relies on the previous testing PersonManager.getPersonByKey(key) to work
-					@author laifrank2002
-					@date 2019-12-02
-				 */
-				function TestPersonManagerRemovePerson()
-				{
-					PersonManager.removePerson(person2);
-					return PersonManager.getPersonByKey(person2.key);
-				}
-				
-				/*
-					Tests the function PersonManager.removePerson(key) by removing a person by key, and then testing if we can still get it.
-						relies on the previous testing PersonManager.getPersonByKey(key) to work
-					@author laifrank2002
-					@date 2019-12-02
-				 */
-				function TestPersonManagerRemovePersonByKey()
-				{
-					PersonManager.removePersonByKey(person1.key);
-					return PersonManager.getPersonByKey(person1.key);
-				}
-				
-				// tests 
-				TestingManager.addTest("TestPersonManagerGetPersonByKey", TestPersonManagerGetPersonByKey, person1);
-				TestingManager.addTest("TestPersonManagerRemovePerson", TestPersonManagerRemovePerson, undefined);
-				TestingManager.addTest("TestPersonManagerRemovePersonByKey", TestPersonManagerRemovePersonByKey, undefined);
-			}
-		}	
+
+		Engine.log("Adding tests for PersonManager...");
+		// setup
+		var person1 = new Person();
+		PersonManager.addPerson(person1);
+		var person2 = new Person();
+		PersonManager.addPerson(person2);
+		
+		/*
+			Tests the function PersonManager.getPersonByKey(key) by comparing known vs result references
+			@author laifrank2002
+			@date 2019-12-02
+		 */
+		function TestPersonManagerGetPersonByKey()
+		{
+			return PersonManager.getPersonByKey(person1.key);
+		}
+		
+		/*
+			Tests the function PersonManager.removePerson(person) by removing a person, and then testing if we can still get it.
+				relies on the previous testing PersonManager.getPersonByKey(key) to work
+			@author laifrank2002
+			@date 2019-12-02
+		 */
+		function TestPersonManagerRemovePerson()
+		{
+			PersonManager.removePerson(person2);
+			return PersonManager.getPersonByKey(person2.key);
+		}
+		
+		/*
+			Tests the function PersonManager.removePerson(key) by removing a person by key, and then testing if we can still get it.
+				relies on the previous testing PersonManager.getPersonByKey(key) to work
+			@author laifrank2002
+			@date 2019-12-02
+		 */
+		function TestPersonManagerRemovePersonByKey()
+		{
+			PersonManager.removePersonByKey(person1.key);
+			return PersonManager.getPersonByKey(person1.key);
+		}
+		
+		// tests 
+		TestingManager.addTest("TestPersonManagerGetPersonByKey", TestPersonManagerGetPersonByKey, person1);
+		TestingManager.addTest("TestPersonManagerRemovePerson", TestPersonManagerRemovePerson, undefined);
+		TestingManager.addTest("TestPersonManagerRemovePersonByKey", TestPersonManagerRemovePersonByKey, undefined);
+			
 	}
-)();
+);

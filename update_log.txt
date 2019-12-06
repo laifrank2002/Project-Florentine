@@ -1,3 +1,14 @@
+2019/12/05
+More on DOM.
+- wrote in DOMElement, which is a DOM wrapper 
+- DOMElement functions
+- DOM tests
+- refactored testing for PersonManager
+
+2019/12/04
+DOM DOM DOM!
+- new dom manager!
+
 2019/12/02
 Finally started doing things the RIGHT way.
 - added persons!

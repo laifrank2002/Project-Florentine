@@ -20,7 +20,8 @@ var Engine = (
 				StateManager.initialize();
 				
 				// Adding tests 
-				TestPersonManager.initialize();
+				TestPersonManager();
+				TestDOM();
 			},
 			
 			/**
