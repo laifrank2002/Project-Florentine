@@ -21,7 +21,8 @@ var Engine = (
 				
 				// Adding tests 
 				TestPersonManager();
-				TestDOM();
+				TestDOMElement();
+				TestRandom();
 			},
 			
 			/**
