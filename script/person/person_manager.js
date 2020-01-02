@@ -87,25 +87,133 @@ var PersonManager = {
 		}
 		else 
 		{
+			Engine.log(`No such person of key ${key} exists.`);
 			return false;
 		}
 	},
 	
-	/* Specific Utility */
+	/**
+		Adds a trait to a person.
+		Prevents duplicates by first searching if it already exists.
+		@param person - the person themself 
+		@param trait - the key of the trait
+		@return boolean - if we were able to add the trait.
+		@author laifrank2002
+		@date 2020-01-02
+	 */
+	addTrait: function(person, trait)
+	{
+		if(PersonManager.hasTrait(person, trait)) return false;
+		if(!PersonManager.lookupTrait(trait)) return false;
+		
+		person.traits.push(trait);
+		return true;
+	},
 	
 	/**
-		Ages a person up by one year.
-		INCLUDES SIDE EFFECTS! In fact, this is built specifically to deal with all the side effects!
-		@param person - the person to age up 
-		@return age - the new age of the person 
+		Adds a trait to a person by key.
+		Prevents duplicates by first searching if it already exists.
+		@param key - the key of the person 
+		@param trait - the key of the trait 
+		@return boolean - if we were able to add the trait.
 		@author laifrank2002
-		@date 2019-12-10
+		@date 2020-01-02
 	 */
-	agePerson: function(person)
+	addTraitByKey: function(key, trait)
 	{
+		var person = PersonManager.getPersonByKey(key);
 		if(person)
 		{
-			return ++person.age;
+			return PersonManager.addTrait(person, trait);
 		}
+		else 
+		{
+			Engine.log(`No such person of key ${key} exists.`);
+			return false;
+		}
+	},
+	
+	/**
+		Removes a trait from a person.
+		Silently fails if trait doesn't exist from person, or doesn't exist at all.
+		@param person - the person 
+		@param trait - key of the trait 
+		@return boolean - if the operation is successful
+		@author laifrank2002
+		@date 2020-01-02
+	 */
+	removeTrait: function(person, trait)
+	{
+		return ArrayUtilities.removeElement(person.traits, trait);
+	},
+	
+	/**
+		Removes a trait from a person by key.
+		Silently fails if trait doesn't exist from person, or doesn't exist at all.
+		@param key - the key of the person 
+		@param trait - key of the trait 
+		@return boolean - if the operation is successful 
+		@author laifrank2002
+		@date 2020-01-02
+	 */
+	removeTraitByKey: function(key, trait)
+	{
+		var person = PersonManager.getPersonByKey(key);
+		if(person)
+		{
+			return PersonManager.removeTrait(person, trait);
+		}
+		else 
+		{
+			Engine.log(`No such person of key ${key} exists.`);
+			return false;
+		}
+	},
+	
+	/**
+		Checks if a person has a trait.
+		@param person - person 
+		@param trait - key of the trait
+		@return boolean - if the person has the trait 
+		@author laifrank2002
+		@date 2020-01-02
+	 */
+	hasTrait: function(person, trait)
+	{
+		return person.traits.includes(trait);
+	},
+	
+	/**
+		Checks if a person by key has a trait.
+		@param key - the key of the person 
+		@param trait - key of the trait 
+		@return boolean - if the person has the trait 
+		@author laifrank2002
+		@date 2020-01-02
+	 */
+	hasTraitByKey: function(key, trait)
+	{
+		var person = PersonManager.getPersonByKey(key);
+		if(person)
+		{
+			return PersonManager.hasTrait(person, trait);
+		} 
+		else 
+		{
+			Engine.log(`No such person of key ${key} exists.`);
+			return false;
+		}
+	},
+	
+	/**
+		Lookup a trait by key. 
+		@param key of the trait 
+		@return Trait - the object containing information about the trait.
+		@author laifrank2002
+		@date 2019-12-02
+	 */
+	lookupTrait: function(key)
+	{
+		return Person.prototype.TRAIT_LIST[key];
 	},
 }

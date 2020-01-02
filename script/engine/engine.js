@@ -22,6 +22,7 @@ var Engine = (
 				// Adding tests 
 				TestPersonManager();
 				TestDOMElement();
+				TestArrayUtilities();
 				TestRandom();
 			},
 			

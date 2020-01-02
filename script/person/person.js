@@ -32,4 +32,10 @@ Person.prototype.TRAIT_LIST = {
 		"name": "Human",
 		"description": "A human being. Nothing special.",
 	},
+	"test": 
+	{
+		"name": "Test",
+		"description": "You should not see this unless you're a cheater! Or there's a bug! In which case, please use the Bug Report tool.",
+	},
 }
+

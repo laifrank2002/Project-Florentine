@@ -74,7 +74,15 @@ var TestingManager = (
 			
 			for(var index = 0; index < this.repeat; index++)
 			{
-				var output = this.test();
+				try 
+				{
+					var output = this.test();
+				}
+				catch(error)
+				{
+					this.logError(error.message);
+					return false;
+				}
 				// if it fails just once, then it's already failed 
 				if(!this.condition(output))
 				{
