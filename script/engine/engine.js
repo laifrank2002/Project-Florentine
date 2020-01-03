@@ -20,9 +20,11 @@ var Engine = (
 				StateManager.initialize();
 				
 				// Adding tests 
-				TestPersonManager();
-				TestDOMElement();
 				TestArrayUtilities();
+				TestDOMElement();
+				TestInventory();
+				TestKeyCollection();
+				TestPersonManager();
 				TestRandom();
 			},
 			
